@@ -1,0 +1,61 @@
+body {
+  background-color: rgb(102, 68, 27);
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #ba1d1d;
+  font-family: Arial, sans-serif;
+  opacity: 0; /* 처음에는 투명 */
+  animation: fadeIn 1s forwards; /* fadeIn 애니메이션 적용 */
+}
+
+.main-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards;
+  animation-delay: 1s; /* 타이틀은 0.5초 후에 등장 */
+}
+
+.main-title {
+  font-size: 4rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards;
+  animation-delay: 1s; /* 이미지가 1초 후에 등장 */
+}
+
+button {
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards;
+  animation-delay: 1s; /* 버튼은 1.5초 후에 등장 */
+}
+
+/* fadeIn 애니메이션 정의 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* 처음에 아래에서 등장 */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* 최종 위치 */
+  }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>본인 확인</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- 화면 중앙에 배치 -->
+    <div class="main-container">
+      <div class="fade-in-section">안녕하세요</div>
+      <div class="fade-in-section">홍길동입니다.</div>
+      <div class="fade-in-section">아무말이나 쓰는 중입니다.</div>
+      <div class="fade-in-section">예시 텍스트가 필요해요.</div>
+			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
+			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
+			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
+			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
+			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
+			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
+			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
+			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
+			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
+			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
+			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
+			<div class="fade-in-section-video">
+				<video width="800" height="550" controls>
+					<source src="movie.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+			</div>
+			<div class="fade-in-section">
+				<button class="btn btn-secondary btn-lg start-button">확인</button>
+			</div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Bootstrap JS 및 필수 라이브러리 -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Fade-in on scroll script
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll(".fade-in-section");
+				const sectionsVideo = document.querySelectorAll(".fade-in-section-video");
+
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.9 }
+        );
+
+        sections.forEach((section) => {
+          observer.observe(section);
+        });
+				sectionsVideo.forEach((section) => {
+					observer.observe(section);
+				});
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500vh; /* 추가된 높이로 스크롤을 생성 */
+  }
+
+	.fade-in-section-video {
+		opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 40vh; */
+    font-size: 2rem;
+    color: #333;
+	}
+
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    font-size: 2rem;
+    color: #333;
+  }
+
+  .fade-in-section.is-visible, .fade-in-section-video.is-visible {
+    opacity: 1;
+    transform: translateY(-100px);
+  }
+</style>
