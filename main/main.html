@@ -12,31 +12,30 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
+    <div class="main-title-container">
+      <h3> 아래로 스크롤을 내려주세요 </h3>
+    </div>
     <!-- 화면 중앙에 배치 -->
     <div class="main-container">
-      <div class="fade-in-section">안녕하세요</div>
-      <div class="fade-in-section">홍길동입니다.</div>
-      <div class="fade-in-section">아무말이나 쓰는 중입니다.</div>
-      <div class="fade-in-section">예시 텍스트가 필요해요.</div>
-			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
-			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
-			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
-			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
-			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
-			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
-			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
-			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
-			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
-			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
-			<div class="fade-in-section">예시 텍스트가 필요해요.</div>
-			<div class="fade-in-section-video">
+      <div class="fade-in-text" data-aos="fade-up" data-aos-duration="1500">
+        안녕하세요
+      </div>
+      <div class="fade-in-text" data-aos="fade-up" data-aos-duration="1500">안녕하세요</div>
+      <div class="fade-in-text" data-aos="fade-up" data-aos-duration="1500">안녕하세요</div>
+      <div class="fade-in-text" data-aos="fade-up" data-aos-duration="1500">안녕하세요</div>
+      <div class="fade-in-text" data-aos="fade-up" data-aos-duration="1500">안녕하세요</div>
+      <div class="fade-in-text" data-aos="fade-up" data-aos-duration="1500">안녕하세요</div>
+      <div class="fade-in-text" data-aos="fade-up" data-aos-duration="1500">안녕하세요</div>
+      <div class="fade-in-text" data-aos="fade-up" data-aos-duration="1500">안녕하세요</div>
+      <div data-aos="zoom-in" data-aos-duration="1500">
 				<video width="800" height="550" controls>
 					<source src="movie.mp4" type="video/mp4">
 					Your browser does not support the video tag.
 			</div>
-			<div class="fade-in-section">
+      <div data-aos="zoom-in" data-aos-duration="1500">
 				<button class="btn btn-secondary btn-lg start-button">확인</button>
 			</div>
     </div>
@@ -58,35 +57,12 @@
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
       crossorigin="anonymous"
     ></script>
-    <script>
-      // Fade-in on scroll script
-      document.addEventListener("DOMContentLoaded", () => {
-        const sections = document.querySelectorAll(".fade-in-section");
-				const sectionsVideo = document.querySelectorAll(".fade-in-section-video");
-
-        const observer = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.9 }
-        );
-
-        sections.forEach((section) => {
-          observer.observe(section);
-        });
-				sectionsVideo.forEach((section) => {
-					observer.observe(section);
-				});
-      });
-    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   </body>
 </html>
-
+<script>
+  AOS.init();
+</script>
 <style>
   body {
     margin: 0;
@@ -95,40 +71,33 @@
     background-color: #f1f1f1;
   }
 
+  .main-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    font-size: 2rem;
+    color: #333;
+  }
   .main-container {
+    padding-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 500vh; /* 추가된 높이로 스크롤을 생성 */
+    /* justify-content: center; */
+    height: 2500px; /*추가된 높이로 스크롤을 생성*/
   }
 
-	.fade-in-section-video {
-		opacity: 0;
+  .fade-in-text {
+    /* opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; */
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 40vh; */
-    font-size: 2rem;
-    color: #333;
-	}
-
-  .fade-in-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20vh;
+    height: 120px;
     font-size: 2rem;
     color: #333;
   }
 
-  .fade-in-section.is-visible, .fade-in-section-video.is-visible {
-    opacity: 1;
-    transform: translateY(-100px);
-  }
 </style>
